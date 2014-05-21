@@ -22,4 +22,19 @@ module.exports = function() {
   this.Then(/^I should see the headline "([^"]*)"$/, function(expectedTitle) {
     return new this.Widgets.Notebook().readHeadline().should.eventually.contain(expectedTitle);
   });
+
+  this.Given(/^The "([^"]*)" editor is ready$/, function(editorName) {
+    return new this.Widgets.CodeEditor({type: "evaluator-type"}).isReady();
+  });
 }
+
+
+// this.Given(/^I evaluate The "([^"]*)" "([^"]*)"$/, function(arg1, arg2, callback) {
+//   // express the regexp above with the code you wish you had
+//   callback.pending();
+// });
+
+// this.Then(/^I should see the "([^"]*)" editor with the result "([^"]*)"$/, function(arg1, arg2, callback) {
+//   // express the regexp above with the code you wish you had
+//   callback.pending();
+// });
